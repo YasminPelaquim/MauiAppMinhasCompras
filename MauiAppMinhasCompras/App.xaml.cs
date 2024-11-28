@@ -1,4 +1,5 @@
 ﻿using MauiAppMinhasCompras.Helpers;
+using MauiAppMinhasCompras.Views;
 
 namespace MauiAppMinhasCompras
 {
@@ -27,7 +28,7 @@ namespace MauiAppMinhasCompras
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new NavigationPage(new NovoProduto());
         }
     }
 }
