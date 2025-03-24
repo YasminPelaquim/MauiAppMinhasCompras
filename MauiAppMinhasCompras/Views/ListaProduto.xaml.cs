@@ -11,11 +11,11 @@ public partial class ListaProduto : ContentPage
 	{
 		InitializeComponent();
 
-        lst_produtos.ItemsSource = lista;
+		lst_produtos.ItemsSource = lista;
 	}
 
-    protected async override void OnAppearing()
-    {
+	protected async override void OnAppearing()
+	{
 		try
 		{
 			List<Produto> tmp = await App.Db.GetAll();
@@ -24,12 +24,12 @@ public partial class ListaProduto : ContentPage
 		}
 		catch (Exception ex)
 		{
-            await DisplayAlert("Ops", ex.Message, "OK");
-        }
-    }
+			await DisplayAlert("Ops", ex.Message, "OK");
+		}
+	}
 
-    private void ToolbarItem_Clicked(object sender, EventArgs e)
-    {
+	private void ToolbarItem_Clicked(object sender, EventArgs e)
+	{
 		try
 		{
 			Navigation.PushAsync(new Views.NovoProduto());
@@ -38,17 +38,17 @@ public partial class ListaProduto : ContentPage
 		{
 			DisplayAlert("Ops", ex.Message, "OK");
 		}
-    }
+	}
 
-    private async void txt_search_TextChanged(object sender, TextChangedEventArgs e)
-    {
+	private async void txt_search_TextChanged(object sender, TextChangedEventArgs e)
+	{
 		try
 		{
 			string q = e.NewTextValue;
 
-            // lst_produtos.IsRefreshing = true;
+			lst_produtos.IsRefreshing = true;
 
-            lista.Clear();
+			lista.Clear();
 
 			List<Produto> tmp = await App.Db.Search(q);
 
@@ -56,12 +56,12 @@ public partial class ListaProduto : ContentPage
 		}
 		catch (Exception ex)
 		{
-           await DisplayAlert("Ops", ex.Message, "OK");
-        }
-    }
+			await DisplayAlert("Ops", ex.Message, "OK");
+		}
+	}
 
-    private void ToolbarItem_Clicked_1(object sender, EventArgs e)
-    {
+	private void ToolbarItem_Clicked_1(object sender, EventArgs e)
+	{
 		double soma = lista.Sum(i => i.Total);
 
 		string msg = $"O total é {soma:C}";
@@ -70,8 +70,8 @@ public partial class ListaProduto : ContentPage
 
 	}
 
-    private async void MenuItem_Clicked(object sender, EventArgs e)
-    {
+	private async void MenuItem_Clicked(object sender, EventArgs e)
+	{
 		try
 		{
 			MenuItem selecionado = sender as MenuItem;
@@ -88,10 +88,10 @@ public partial class ListaProduto : ContentPage
 		{
 			await DisplayAlert("Ops", ex.Message, "OK");
 		}
-    }
+	}
 
-    private void lst_produtos_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-    {
+	private void lst_produtos_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+	{
 		try
 		{
 			Produto p = e.SelectedItem as Produto;
@@ -105,26 +105,28 @@ public partial class ListaProduto : ContentPage
 		{
 			DisplayAlert("Ops", ex.Message, "OK");
 		}
-    }
+	}
 
-    //  private async void lst_produtos_Refreshing(object sender, EventArgs e)
-    //{
-    //   try
-    //  {
-    //   lista.Clear();
+	private async void lst_produtos_Refreshing(object sender, EventArgs e)
+	{
+		try
+		{
+			lista.Clear();
 
-    //  List<Produto> tmp = await App.Db.GetAll();
+			List<Produto> tmp = await App.Db.GetAll();
 
-    //tmp.ForEach(i => lista.Add(i));
-    //}
-    // catch (Exception ex)
-    // {
-    //  await DisplayAlert("Ops", ex.Message, "OK");
+			tmp.ForEach(i => lista.Add(i));
+		}
+		catch (Exception ex)
+		{
+			await DisplayAlert("Ops", ex.Message, "OK");
 
-    //  } finally
-    //  {
-    // lst_produtos.IsRefreshing = false;
-    //}
+		}
+		finally
+		{
+			lst_produtos.IsRefreshing = false;
+		}
+	}
 }
 
 
