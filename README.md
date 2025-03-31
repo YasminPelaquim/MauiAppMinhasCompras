@@ -78,25 +78,29 @@ AppMinhasCompras/
 
 ### Tela Principal
 
-![Alt text](relative%20path/to/img.jpg?raw=true "Title")
+![Image](https://github.com/user-attachments/assets/2d09482d-df86-4789-85f4-6be6ddb4fc92)
+
+
+
+
+
 
 A tela principal exibe todas as listas de compras criadas pelo usuário, com opções para adicionar novas listas, editar ou excluir existentes.
 
-### Detalhes da Lista
+### Soma dos Itens da Lista
 
-![Detalhes da Lista](/api/placeholder/250/500)
-
-Mostra todos os itens de uma lista específica, permitindo marcar como comprado, adicionar novos itens e visualizar o valor total.
+![Image](https://github.com/user-attachments/assets/7ac2e751-1208-4493-b118-69a4abdba08b)
+Mostra o valor total da lista.
 
 ### Adição/Edição de Item
 
-![Adição de Item](/api/placeholder/250/500)
-
+![Image](https://github.com/user-attachments/assets/f8d73286-0a04-4445-bb2e-0cf52da880f9)
+![Image](https://github.com/user-attachments/assets/ffdda88f-9b2b-4803-9510-bf2c6f77c6ab)
 Interface para adicionar ou editar itens, permitindo inserir nome, quantidade, preço e selecionar categoria.
 
 ### Funcionamento
 
-![Demonstração do App](/api/placeholder/500/300)
+https://github.com/user-attachments/assets/3eb8e350-37d6-4b79-8bcb-a428cf2fd509
 
 *GIF mostrando o fluxo básico de uso do aplicativo, desde a criação de uma lista até a marcação de itens como comprados.*
 
